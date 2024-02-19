@@ -1,0 +1,23 @@
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Index</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @intern.index %></td>
+      <td><%= @intern.value %></td>
+    </tr>
+  </tbody>
+</table>
+
+  <br/>
+
+  <%= link_to 'Edit', edit_intern_path(@intern), class:"btn btn-secondary" %>
+
+<%= link_to 'Back', interns_path, class:"btn btn-dark" %>
+<br/><br/>
+
+

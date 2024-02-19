@@ -1,0 +1,27 @@
+<%= form_with(model: intern) do |form| %>
+  <% if intern.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(intern.errors.count, "error") %> prohibited this intern from being saved:</h2>
+
+      <ul>
+        <% intern.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :index%>
+    <%= form.text_field :index, class:"form-control", placeholder:"Index number" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :value %>
+    <%= form.number_field :value, class:"form-control", placeholder:"Value" %>
+  </div>
+<br/>
+  <div class="actions">
+    <%= form.submit 'Update Index', class:'btn btn-secondary' %>
+  </div>
+<% end %>

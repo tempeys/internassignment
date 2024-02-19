@@ -1,0 +1,63 @@
+<h1><center>Table 1</center></h1>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th><center>Index</center></th>
+      <th><center>Value</center></th>
+      <th colspan="2"><center>Action</center></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @interns.each do |intern| %>
+    <tr>
+      <td><%= intern.index %></td>
+      <td><%= intern.value %></td>
+      <td><%= link_to 'Show', intern %></td>
+      <td><%= link_to 'Edit', edit_intern_path(intern) %></td>
+    </tr>
+  <% end %>
+</tbody>
+
+</table>
+
+<br/>
+
+<%= link_to 'New Index', new_intern_path, class:"btn btn-primary"  %>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h1><center>Table 2</center></h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th><center>Category</center></th>
+      <th><center>Value</center></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr>
+      <td>Alpha</td>
+      <td><%= @interns.where(index: 'A5').sum(:value) + @interns.where(index: 'A20').sum(:value) %></td>
+    </tr>
+    <tr>
+      <td>Beta</td>
+      <td><%= @interns.where(index: 'A15').sum(:value) / @interns.where(index: 'A7').sum(:value) %></td>
+    </tr>
+    <tr>
+      <td>Charlie</td>
+      <td><%= @interns.where(index: 'A13').sum(:value) * @interns.where(index: 'A12').sum(:value) %></td>
+    </tr>
+
+</tbody>
+
+</table>
+
+<br/>
+<br/>
